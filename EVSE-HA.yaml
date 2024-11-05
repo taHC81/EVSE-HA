@@ -1,0 +1,64 @@
+mqtt:
+  number:
+    - name: "EVSE current configured"
+      unique_id: evse_configured_current
+      icon: "mdi:ev-station"
+      state_topic: "evse/status"
+      command_topic: "evse/cmd"
+      command_template: '{ "method":"setCurrent", "param":{{ value }} }'
+      value_template: "{{ value_json.current_configured | float | round(1) }}"
+      device_class: current
+      unit_of_measurement: A
+      min: 6.0
+      max: 20.0
+      step: 0.1
+
+  switch:
+    - name: "EVSE enabled"
+      unique_id: evse_enabled
+      state_topic: "evse/status"
+      value_template: '{% if value_json.enabled == 1 %}ON{% else %}OFF{% endif %}'
+      command_topic: "evse/cmd"
+      command_template: '{ "method":"charger_enable","param":{% if value == "ON" %}true{% else %}false{% endif %} }'
+      icon: "mdi:power"
+
+  sensor:
+    - name: "EVSE state"
+      unique_id: evse_state_extended
+      icon: "mdi:car-electric-outline"
+      state_topic: "evse/status"
+      value_template: "{% if value_json.session == 0 %} Standby {% elif value_json.charging == 1 %} EV charging {% elif value_json.session == 1 %} EV Connected {% else %} Unknown {% endif %}"
+    - name: "EVSE power"
+      unique_id: evse_power
+      state_topic: "evse/status"
+      value_template: "{{ value_json.power }}"
+      device_class: power
+      unit_of_measurement: W
+    - name: "EVSE voltage L1"
+      unique_id: evse_voltage
+      state_topic: "evse/status"
+      value_template: "{{ value_json.voltageL1 }}"
+      device_class: voltage
+      unit_of_measurement: V
+    - name: "EVSE current L1"
+      unique_id: evse_current
+      state_topic: "evse/status"
+      value_template: "{{ value_json.currentL1 }}"
+      device_class: current
+      unit_of_measurement: A
+    - name: "EVSE consumption"
+      unique_id: evse_consumption
+      state_topic: "evse/status"
+      value_template: "{{ value_json.consumption }}"
+      device_class: energy
+      unit_of_measurement: kWh
+    - name: "EVSE temperature"
+      unique_id: evse_temperature
+      state_topic: "evse/status"
+      value_template: "{{ value_json.temperature }}"
+      device_class: temperature
+      unit_of_measurement: °C
+    - name: "EVSE session time"
+      unique_id: evse_session_time
+      state_topic: "evse/status"
+      value_template: "{{ value_json.session_time|int|timestamp_custom('%H:%M:%S') }}"

@@ -1,7 +1,7 @@
 local mqtt = require("mqtt")
 local json = require("json")
 
-local client = mqtt.client("mqtt://192.168.0.102:1883")
+local client = mqtt.client("mqtt://your_mqtt_server:1883")
 
 client:setonconnect(function()
   print("MQTT contected")

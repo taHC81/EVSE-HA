@@ -9,9 +9,9 @@ mqtt:
       value_template: "{{ value_json.current_configured | float | round(1) }}"
       device_class: current
       unit_of_measurement: A
-      min: 6.0
-      max: 20.0
-      step: 0.1
+      min: 6.0   # EV default minimal charge current
+      max: 20.0  # modify to your upper limit
+      step: 1.0
 
   switch:
     - name: "EVSE enabled"

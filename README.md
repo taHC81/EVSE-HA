@@ -17,3 +17,9 @@ As a first, modify **status.lua** file with your MQTT server's IP. Upload both L
 Connection diagram with Type 2 socket. Please note that you shall use RCB Type B (AC+DC) for safety reasons!
 
 ![Wiring](https://github.com/taHC81/EVSE-HA/blob/main/EVSE-wiring-socket.png?raw=true)
+
+## EVSE box ##
+
+Example of the box (300 x 200 x 130 mm)
+
+![Wiring](https://github.com/taHC81/EVSE-HA/blob/main/EVSE-box.jpg?raw=true)

@@ -20,6 +20,6 @@ Connection diagram with Type 2 socket. Please note that you shall use RCB Type B
 
 ## EVSE box ##
 
-Example of the box (300 x 200 x 130 mm)
+Example of the box ([300 x 200 x 130 mm](https://www.firn.sk/nl-200x300-p1888)), [socket from Ali](https://www.aliexpress.com/item/1005007546662957.html).
 
 ![Wiring](https://github.com/taHC81/EVSE-HA/blob/main/EVSE-box.jpg?raw=true)

@@ -61,4 +61,4 @@ mqtt:
     - name: "EVSE session time"
       unique_id: evse_session_time
       state_topic: "evse/status"
-      value_template: "{{ value_json.session_time|int|timestamp_custom('%H:%M:%S') }}"
+      value_template: "{{ value_json.session_time|int|timestamp_custom('%H:%M:%S', false) }}"

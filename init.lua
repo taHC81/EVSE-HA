@@ -1,1 +1,1 @@
-evse.adddriver(require("status"))
+component.register(require("state"))

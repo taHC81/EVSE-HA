@@ -10,11 +10,14 @@ Connect to the power supply using micro USB cable, after few seconds press the B
 
 As a first, modify **status.lua** file with your MQTT server's IP. Upload both LUA files using EVSE web interface via Settings / Files. Then go to Settings / Script, Enable it and Reload. Then you may check the MQTT browser (MQTT.fx, MQTT explorer...) whether it works or not. At the end, add MQTT entities from **EVSE-HA.yaml** into your Home assistnat configuration file and reload MQTT entries. Refer to the official documentation in case of any doubt.
 
+*Note: this is valid for firmware v0.10.1 only, newer ones have diffrent configuration!*
+
 ![Script files](https://github.com/taHC81/EVSE-HA/blob/main/EVSE-files.png?raw=true)
 
 ## Calibration ##
 
-For the accurate power readings, please modify calibration constants using the multimeter.
+For the accurate power readings, please modify calibration constants using the multimeter. Voltage should be correct, but current depends on your current sensor.
+![Calibration](https://github.com/taHC81/EVSE-HA/blob/main/evse_calibration_2.png?raw=true)
 
 ## Screenshots from Home assistant ##
 
